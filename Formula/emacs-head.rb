@@ -20,7 +20,6 @@ class EmacsHead < Formula
   option "with-modules", "Compile with dynamic modules support"
   option "with-no-frame-refocus", "Disables frame re-focus (ie. closing one frame does not refocus another one)"
   option "with-jansson", "jansson support"
-  option "without-multicolor-fonts", "Build without a patch that enables multicolor font support"
 
   depends_on "pkg-config" => :build
   depends_on "gnutls"
@@ -61,13 +60,6 @@ class EmacsHead < Formula
     patch do
       url "https://raw.githubusercontent.com/cxb811201/homebrew-emacs-head/master/patches/0001-No-frame-refocus-cocoa.patch"
       sha256 "f004e6e65b969bbe83f5d6d53e4ba0e020631959da9ef9682479f7eeb09becd1"
-    end
-  end
-
-  if build.with? "multicolor-fonts"
-    patch do
-      url "https://gist.githubusercontent.com/aatxe/260261daf70865fbf1749095de9172c5/raw/214b50c62450be1cbee9f11cecba846dd66c7d06/patch-multicolor-font.diff"
-      sha256 "5af2587e986db70999d1a791fca58df027ccbabd75f45e4a2af1602c75511a8c"
     end
   end
 
